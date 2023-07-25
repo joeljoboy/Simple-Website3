@@ -47,6 +47,10 @@ nav ul
     background-color: rgb(242, 234, 250);
     cursor: pointer;
 }
+.info
+{
+    font-size: 22px;
+}
 .gameInfo
 {
     padding: 0 34px;
@@ -54,7 +58,8 @@ nav ul
 }
 .imgBox img
 {
-    display: none;
+    width:0;
+    transition: width 1s ease-in-out;
 }
 /* utility classes for border */
 .bl-0
@@ -72,4 +77,15 @@ nav ul
 .bb-0
 {
     border-bottom: 0;
+}
+#reset
+{
+    margin: 0 16px;
+    padding: 5px 19px;
+    background-color: #e5c7e5;
+    border-radius: 11px;
+    cursor: pointer;
+    font-family: 'Lumanosimo', cursive;
+    font-size: 15px;
+    font-weight: bolder;
 }

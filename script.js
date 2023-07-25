@@ -13,20 +13,30 @@ const changeTurn = ()=>
 // function to check for a Win
 const checkWin=()=>
 {
+    let boxText = document.getElementsByClassName("boxText")
     let wins=[
         [0,1,2],
         [3,4,5],
         [6,7,8],
-        [],
-        [],
-        [],
-        [],
-        [],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6],
     ]
+    wins.forEach(e =>
+        {
+            if((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== ""))
+            {
+                document.querySelector('.info').innerText =  boxText[e[0]].innerText +" "+"Won";
+                gameFinished=true;
+                document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "200px"
+            }
+        })
 }
 
 // Game Logic
-
+// music.play();
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>
     {
@@ -45,4 +55,15 @@ Array.from(boxes).forEach(element =>
                 }  
             }
         })
+    })
+    // reset button
+    reset.addEventListener('click', ()=>
+    {
+        let boxTexts = document.querySelectorAll(".boxText");
+        Array.from(boxTexts).forEach(elem =>
+            {
+                elem.innerText=" ";
+            })
+            let info = doucment.querySelector(".info");
+            info.innerText="";
     })
