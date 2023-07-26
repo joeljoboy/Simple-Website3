@@ -63,7 +63,9 @@ Array.from(boxes).forEach(element =>
         Array.from(boxTexts).forEach(elem =>
             {
                 elem.innerText=" ";
-            })
-            let info = doucment.querySelector(".info");
-            info.innerText="";
+            });
+            move = "X";   
+            gameFinished = false;
+                document.getElementsByClassName("info")[0].innerText = "Turn for" +" "+ move;  
+                document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "0px"      
     })
