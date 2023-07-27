@@ -15,14 +15,14 @@ const checkWin=()=>
 {
     let boxText = document.getElementsByClassName("boxText")
     let wins=[
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6],
+        [0,1,2,7,-50,180],
+        [3,4,5,4,-30,180],
+        [6,7,8,4,-10,180],
+        [0,3,6,-16,-30,90],
+        [1,4,7,4,-30,90],
+        [2,5,8,24,-30,90],
+        [0,4,8,3,-31,224],
+        [2,4,6,2,-28,135],
     ]
     wins.forEach(e =>
         {
@@ -31,6 +31,15 @@ const checkWin=()=>
                 document.querySelector('.info').innerText =  boxText[e[0]].innerText +" "+"Won";
                 gameFinished=true;
                 document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "200px"
+                document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
+                document.querySelector(".line").style.display = "block";
+                // if(wins[6[5]]==='224')
+                // {
+                //     document.querySelector(".line").style.width = "67vw";
+                // }
+                // else{
+                //     document.querySelector(".line").style.width = "53vw";
+                // }
             }
         })
 }
@@ -67,5 +76,6 @@ Array.from(boxes).forEach(element =>
             move = "X";   
             gameFinished = false;
                 document.getElementsByClassName("info")[0].innerText = "Turn for" +" "+ move;  
-                document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "0px"      
+                document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "0px " 
+                document.querySelector(".line").style.display = "none";
     })

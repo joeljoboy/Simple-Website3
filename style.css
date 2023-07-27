@@ -29,11 +29,11 @@ nav ul
 }
 .container
 {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(3,10vw);
     grid-template-rows: repeat(3,10vw);
     font-family: 'Lumanosimo', cursive;
+    position: relative;
 }
 .box
 {
@@ -96,11 +96,12 @@ nav ul
 .line
 {
     background-color: #000;
-    width: 3px;
-    height: 30vw;
+    width: 53vw;
+    height: 3px;
     position: absolute;
-    left: 0;
-    top: 0;
+    bottom: 0;
+    display: none;
+    /* transform: translate(1vw,-28vw) rotate(135deg); */
 }
 /* media queries */
 @media only screen and (max-width: 950px) {
