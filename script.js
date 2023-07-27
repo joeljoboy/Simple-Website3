@@ -34,14 +34,18 @@ const checkWin=()=>
                 document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
                 document.querySelector(".line").style.width = "53vw";
                 gameover.play();
-                gameover.volume = 0.5; // Set the volume to 50%
-
+                let container = document.querySelectorAll('.container');
+                container.forEach(div => {
+                div.classList.add('disabled');
+                });
             }
         })
+                
 }
 
 // Game Logic
-music.play();
+// music.play();
+music.volume=0.5;
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>
     {
@@ -54,6 +58,7 @@ Array.from(boxes).forEach(element =>
                 move = changeTurn();
                 turn.play();
                 checkWin();
+                checkDraw();
                 if(!gameFinished)
                 {
                     document.getElementsByClassName("info")[0].innerText = "Turn for" +" "+ move;
@@ -74,4 +79,20 @@ Array.from(boxes).forEach(element =>
                 document.getElementsByClassName("info")[0].innerText = "Turn for" +" "+ move;  
                 document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "0px " 
                 document.querySelector(".line").style.width = "0vw";
+                let container = document.querySelectorAll('.container');
+                container.forEach(div => {
+                  div.classList.remove('disabled');
+                });
     })
+    // Draw
+    const checkDraw = () => {
+        let boxText = document.getElementsByClassName("boxText");
+        let isDraw = Array.from(boxText).every(box => box.innerText !== "");
+        if (isDraw && !gameFinished) {
+          document.querySelector('.drawDialog').style.display = 'block';
+        }
+      }
+    //   closing the dialog box
+      document.getElementById('closeDialog').addEventListener('click', () => {
+        document.querySelector('.drawDialog').style.display = 'none';
+      });
