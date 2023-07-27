@@ -32,20 +32,16 @@ const checkWin=()=>
                 gameFinished=true;
                 document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "200px"
                 document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
-                document.querySelector(".line").style.display = "block";
-                // if(wins[6[5]]==='224')
-                // {
-                //     document.querySelector(".line").style.width = "67vw";
-                // }
-                // else{
-                //     document.querySelector(".line").style.width = "53vw";
-                // }
+                document.querySelector(".line").style.width = "53vw";
+                gameover.play();
+                gameover.volume = 0.5; // Set the volume to 50%
+
             }
         })
 }
 
 // Game Logic
-// music.play();
+music.play();
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>
     {
@@ -77,5 +73,5 @@ Array.from(boxes).forEach(element =>
             gameFinished = false;
                 document.getElementsByClassName("info")[0].innerText = "Turn for" +" "+ move;  
                 document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "0px " 
-                document.querySelector(".line").style.display = "none";
+                document.querySelector(".line").style.width = "0vw";
     })

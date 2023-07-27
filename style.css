@@ -96,12 +96,11 @@ nav ul
 .line
 {
     background-color: #000;
-    width: 53vw;
+    width: 0vw;
     height: 3px;
     position: absolute;
     bottom: 0;
-    display: none;
-    /* transform: translate(1vw,-28vw) rotate(135deg); */
+    transition: width 1s ease-in-out;
 }
 /* media queries */
 @media only screen and (max-width: 950px) {
