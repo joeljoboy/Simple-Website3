@@ -31,8 +31,12 @@ const checkWin=()=>
                 document.querySelector('.info').innerText =  boxText[e[0]].innerText +" "+"Won";
                 gameFinished=true;
                 document.querySelector(".imgBox").getElementsByTagName('img')[0].style.width = "200px"
-                document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
-                document.querySelector(".line").style.width = "53vw";
+                if (window.innerWidth < 950) {
+                    document.querySelector(".line").style.transform = `translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+                    document.querySelector(".line").style.width = "53vw";
+                  } else {
+                    document.querySelector(".line").classList.add("disabled");
+                  }
                 gameover.play();
                 let container = document.querySelectorAll('.container');
                 container.forEach(div => {
@@ -44,8 +48,8 @@ const checkWin=()=>
 }
 
 // Game Logic
-// music.play();
-music.volume=0.5;
+music.play();
+music.volume=0.3;
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>
     {
