@@ -48,8 +48,8 @@ const checkWin=()=>
 }
 
 // Game Logic
-music.play();
-music.volume=0.3;
+// music.play();
+// music.volume=0.3;
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>
     {
